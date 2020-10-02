@@ -1,5 +1,8 @@
-module.exports = function(config){
 
+
+module.exports = function(config){
+	
+	
 	
 	return {
 		dir: {
@@ -7,4 +10,6 @@ module.exports = function(config){
 			output: "dist"
 		}
 	}
+	
+	
 };
