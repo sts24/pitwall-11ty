@@ -1,0 +1,70 @@
+<section class="race-table">
+    <header>
+      <h2>{{ race.raceName }}</h2>
+      <h3><a href="{{ race.Circuit.url }}" target="_blank">{{ race.Circuit.circuitName }}</a></h3>
+      <small>Round {{ race.round }} • {{ race.Circuit.Location.locality }}, {{ race.Circuit.Location.country }} • <formatDate :date="race.date" /> • <a href="{{ race.url }}" target="_blank">Read on Wikipedia</a></small>
+    </header>
+
+    <div class="chart-wrap">
+      <table v-bind:class="{ 'show-all': showAllResults }" class="chart">
+        <thead>
+          <tr>
+            <th class="th-pos">
+              Pos
+            </th>
+            <th>Driver</th>
+            <th>Grid</th>
+            <th>No.</th>
+            <th>Car</th>
+            <th>Fastest Lap</th>
+            <th>Laps</th>
+            <th>Time</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+		{% for car in race.Results %}
+          <tr class="row-position">
+            <td class="td-position">
+              {{ car.positionText }}
+            </td>
+            <td class="td-driver">
+              <a href="{{ car.Driver.url }}" target="_blank">{{ car.Driver.givenName }} {{ car.Driver.familyName }}</a>
+             
+            </td>
+            <td class="td-grid">
+              <span class="mobile-only">Started: </span> {{ car.grid }}
+            </td>
+            <td class="td-car-number">
+              {{ car.number }}
+            </td>
+            <td class="td-constructor">
+              <a href="{{ car.Constructor.url }}" target="_blank">{{ car.Constructor.name }}</a>
+            </td>
+            <td class="td-fastest-lap">
+              <span class="mobile-only">Fastest Lap:</span> {{ car.FastestLap.time }}
+            </td>
+            <td class="td-laps">
+              <span class="mobile-only">Laps:</span> {{ car.laps }}
+            </td>
+            <td class="td-time">
+              <span class="mobile-only">Time:</span> {{ car.Time.time }}
+            </td>
+            <td class="td-points">
+              {{ car.points }} <span class="mobile-only">Pts</span>
+            </td>
+          </tr>
+		{% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="9">
+              <button @click="showAllResults = true" class="reveal-btn">
+                Show Entire Results
+              </button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>

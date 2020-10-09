@@ -1,0 +1,112 @@
+@import 'parts/_prepend';
+
+* { box-sizing: border-box; }
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: var(--gray-dark);
+
+	@media (min-width: 1025px){
+		font-size: 16px;
+	}
+}
+
+a {
+	color: var(--link-color);
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+
+
+@import 'parts/_header';
+@import 'parts/_layout';
+@import 'parts/_type-select';
+@import 'parts/_chart';
+@import 'parts/_races';
+@import 'parts/_standings';
+@import 'parts/_loading';
+@import 'parts/_site-nav';
+
+
+.hide {
+	display: none;
+}
+
+
+
+// loading transitions
+
+
+.loading-transition {
+	transition: 1s opacity;
+	opacity: 1;
+}
+
+.is-loading {
+	opacity: 0;
+}
+
+
+// errors
+
+.error {
+	margin: 2rem;
+	background: var(--red);
+	color: white;
+	font-size: rem(32);
+	padding: 1rem;
+	display: inline-block;
+
+	a {
+		color: yellow;
+	}
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 100vh;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(white,0.8);
+
+	@media (max-width: 767px){
+		bottom: 0;
+		height: auto;
+	}
+}
+
+
+.button {
+	cursor: pointer;
+    display: inline-block;
+    font-size: 1.25em;
+    font-weight: bold;
+    border: 0;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    background: var(--gray-dark);
+    color: white;
+
+    &:hover {
+        background-color: var(--gray-mid);
+    }
+
+}
+
+
+.mobile-only {
+	@media (min-width: 768px){
+		display: none;
+	}
+}

@@ -6,17 +6,24 @@
 
   <title>Pitwall</title>
 
+  <link rel="stylesheet" href="/css/pitwall.css">
+
   {% block head %}
   {% endblock %}
 
 </head>
 <body>
-	
-	<h1>Pitwall</h1>
 
-{% block content %}
-{{ content | safe }}
-{% endblock content %}
+<div id="page">
+  {% include 'partials/PageHeader.njk' %}
+
+  <main class="data-area">
+    {% include 'partials/Nav.njk' %}
+
+    {{ content | safe }}
+  </main>
+
+</div>
 
 
 </body>

@@ -1,0 +1,59 @@
+.chart {
+	border-spacing: 0;
+	background-color: white;
+	width: 100%;
+	
+
+	
+	
+	@media (min-width: 768px){
+
+		thead {
+			th {
+				text-align: left;
+				font-size: 0.875rem;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				color: gray;
+	
+				border-bottom: 1px solid gray;
+			}
+		}
+	
+		tbody {
+			td {
+				border-bottom: 1px solid lightgray;
+				line-height: 2em;
+			}
+		}
+		
+	}
+	
+}
+
+
+
+.reveal-btn {
+	border: 0;
+	background: none;
+	font-size: 1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: var(--link-color);
+	line-height: 2em;
+	padding: 0;
+
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.nation-flag {
+	width: auto;
+	height: 1em;
+	margin-left: 1ch;
+	vertical-align: middle;
+	box-shadow: 0 0 1px rgba(black,0.5);
+}

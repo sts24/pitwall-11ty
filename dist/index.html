@@ -6,18 +6,335 @@
 
   <title>Pitwall</title>
 
+  <link rel="stylesheet" href="/css/pitwall.css">
+
   
   
 
 </head>
 <body>
-	
-	<h1>Pitwall</h1>
 
+<div id="page">
+  <header class="site-header">
+	<div class="header-contents">
+		<img srcset="/images/pitwall-horizontal.svg" class="site-title" width="400" height="41">
+	</div>
 
-<p>hi</p>
+	<nav class="season-select-widget">
+		<label for="season-select">Select a Season</label>
+		<div class="season-select-wrapper">
+			<select id="season-select" v-model="selectSeason" class="season-select">
+				
+				<option value="year">
+					1950
+				</option>
+				
+				<option value="year">
+					1951
+				</option>
+				
+				<option value="year">
+					1952
+				</option>
+				
+				<option value="year">
+					1953
+				</option>
+				
+				<option value="year">
+					1954
+				</option>
+				
+				<option value="year">
+					1955
+				</option>
+				
+				<option value="year">
+					1956
+				</option>
+				
+				<option value="year">
+					1957
+				</option>
+				
+				<option value="year">
+					1958
+				</option>
+				
+				<option value="year">
+					1959
+				</option>
+				
+				<option value="year">
+					1960
+				</option>
+				
+				<option value="year">
+					1961
+				</option>
+				
+				<option value="year">
+					1962
+				</option>
+				
+				<option value="year">
+					1963
+				</option>
+				
+				<option value="year">
+					1964
+				</option>
+				
+				<option value="year">
+					1965
+				</option>
+				
+				<option value="year">
+					1966
+				</option>
+				
+				<option value="year">
+					1967
+				</option>
+				
+				<option value="year">
+					1968
+				</option>
+				
+				<option value="year">
+					1969
+				</option>
+				
+				<option value="year">
+					1970
+				</option>
+				
+				<option value="year">
+					1971
+				</option>
+				
+				<option value="year">
+					1972
+				</option>
+				
+				<option value="year">
+					1973
+				</option>
+				
+				<option value="year">
+					1974
+				</option>
+				
+				<option value="year">
+					1975
+				</option>
+				
+				<option value="year">
+					1976
+				</option>
+				
+				<option value="year">
+					1977
+				</option>
+				
+				<option value="year">
+					1978
+				</option>
+				
+				<option value="year">
+					1979
+				</option>
+				
+				<option value="year">
+					1980
+				</option>
+				
+				<option value="year">
+					1981
+				</option>
+				
+				<option value="year">
+					1982
+				</option>
+				
+				<option value="year">
+					1983
+				</option>
+				
+				<option value="year">
+					1984
+				</option>
+				
+				<option value="year">
+					1985
+				</option>
+				
+				<option value="year">
+					1986
+				</option>
+				
+				<option value="year">
+					1987
+				</option>
+				
+				<option value="year">
+					1988
+				</option>
+				
+				<option value="year">
+					1989
+				</option>
+				
+				<option value="year">
+					1990
+				</option>
+				
+				<option value="year">
+					1991
+				</option>
+				
+				<option value="year">
+					1992
+				</option>
+				
+				<option value="year">
+					1993
+				</option>
+				
+				<option value="year">
+					1994
+				</option>
+				
+				<option value="year">
+					1995
+				</option>
+				
+				<option value="year">
+					1996
+				</option>
+				
+				<option value="year">
+					1997
+				</option>
+				
+				<option value="year">
+					1998
+				</option>
+				
+				<option value="year">
+					1999
+				</option>
+				
+				<option value="year">
+					2000
+				</option>
+				
+				<option value="year">
+					2001
+				</option>
+				
+				<option value="year">
+					2002
+				</option>
+				
+				<option value="year">
+					2003
+				</option>
+				
+				<option value="year">
+					2004
+				</option>
+				
+				<option value="year">
+					2005
+				</option>
+				
+				<option value="year">
+					2006
+				</option>
+				
+				<option value="year">
+					2007
+				</option>
+				
+				<option value="year">
+					2008
+				</option>
+				
+				<option value="year">
+					2009
+				</option>
+				
+				<option value="year">
+					2010
+				</option>
+				
+				<option value="year">
+					2011
+				</option>
+				
+				<option value="year">
+					2012
+				</option>
+				
+				<option value="year">
+					2013
+				</option>
+				
+				<option value="year">
+					2014
+				</option>
+				
+				<option value="year">
+					2015
+				</option>
+				
+				<option value="year">
+					2016
+				</option>
+				
+				<option value="year">
+					2017
+				</option>
+				
+				<option value="year">
+					2018
+				</option>
+				
+				<option value="year">
+					2019
+				</option>
+				
+				<option value="year">
+					2020
+				</option>
+				
+			</select>
+		</div>
+	</nav>
+</header>
 
+  <main class="data-area">
+    <nav class="type-select">
+    <ul class="site-nav content-container">
+      <li>
+        <button :class="{'selected': viewOptions.selectedTab === 'races'}" v-on:click="setTab('races')" class="site-nav-button">
+          Race Results
+        </button>
+      </li>
+      <li>
+        <button :class="{'selected': viewOptions.selectedTab === 'standings'}" v-on:click="setTab('standings')" class="site-nav-button">
+          Standings
+        </button>
+      </li>
+    </ul>
+  </nav>
 
+    <p>hi</p>
+
+  </main>
+
+</div>
 
 
 </body>

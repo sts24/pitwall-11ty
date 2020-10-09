@@ -1,0 +1,103 @@
+.type-select {
+	border-bottom: 2px solid lightgray;
+
+	@media (max-width: 768px){
+		position: sticky;
+		width: 100%;
+		background: white;
+	}
+}
+
+
+.season-select-widget {
+	margin: auto;
+	max-width: 200px;
+}
+
+
+.season-select-wrapper {
+	width: auto;
+	margin: 0 auto;
+
+	font-weight: bold;
+	padding: 0;
+	border: 0;
+	background-color: var(--red);
+	
+	
+	background-image: url('/assets/images/arrow-down.svg');
+	background-size: 1rem auto;
+	background-position: right 1rem center;
+	background-repeat: no-repeat;
+	
+	
+	select {
+		font-size: 1rem;
+		font-weight: bold;
+		appearance: none;
+		background: transparent;
+		border: 0;
+		padding: 0.5rem;
+		margin: 0;
+		width: 100%;
+		color: white;
+		cursor: pointer;
+		
+		&:focus {
+			outline: 0;
+			border: 0;
+		}
+	}
+	
+	@media (min-width: 1025px){
+		background-size: 1.25rem auto;
+		
+		select { font-size: 1.25rem; }
+	}
+}
+
+
+
+.site-nav {
+    padding: 0;
+    margin: auto;
+	list-style: none;
+	
+	display: flex;
+
+    > li {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+.site-nav-button {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    font-size: 1.25em;
+    font-weight: bold;
+    border: 0;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    background: rgba(white,0.1);
+    color: var(--gray-dark);
+    text-align: left;
+
+    &:hover {
+        background: var(--gray-light);
+	}
+	
+	&:focus {
+		outline: 0;
+		box-shadow: inset 0 0 0 2px var(--slate);
+	}
+
+    &.selected {
+		background: var(--red);
+		color: white;
+    }
+
+    
+}

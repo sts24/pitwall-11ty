@@ -1,0 +1,160 @@
+.race-table {
+	margin-bottom: 3rem;
+
+	a {
+		text-decoration: none;
+	}
+
+	tbody tr:nth-child(n+11){
+		display: none;
+	}
+
+	.show-all tbody tr:nth-child(n+11){
+		display: table-row;
+	}
+
+	header {
+		margin-bottom: 0.5rem;
+		padding: 1rem 0;
+
+		h2 {
+			margin: 0;
+			padding: 0;
+			font-size: 1.5rem;
+		}
+
+		h3 {
+			margin: 0 0 0.25rem 0;
+			padding: 0;
+			font-size: 1rem;
+			font-weight: normal;
+		}
+
+		small {
+			display: block;
+			font-size: 0.875rem;
+			line-height: 1.25em;
+		}
+	}
+	
+	footer {
+		text-align: center;
+	}
+	
+	@media (min-width: 1025px){
+		header h2 { font-size: 2rem; }
+		header h3 { font-size: 1.25rem; margin: 0 0 0.5rem 0; }
+	}
+
+	@media (max-width: 768px){
+		.chart {
+			display: block;
+
+			thead {
+				display: none;
+			}
+
+			tbody {
+				display: block;
+
+				tr {
+					td {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+@media (max-width: 768px){
+	tr.row-position {
+		border: 1px solid var(--gray-mid);
+		border-radius: 0.5rem;
+		margin: 1rem 0 0 0;
+		padding: 0.5rem;
+
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		//grid-gap: 0.5rem;
+		grid-column-gap: 0.5rem;
+		grid-template-areas: 
+			"position driver number"
+			"points constructor ."
+			". grid ."
+			". fastestlap ."
+			". time ."
+			". laps .";
+	}
+
+
+
+	.td-position {
+		grid-area: position;
+		font-weight: bold;
+		font-size: 2rem;
+		line-height: normal;
+	}
+	.td-driver {
+		grid-area: driver;
+		font-size: 1.25rem;
+		margin-bottom: 0.25rem;
+		align-self: end;
+	}
+	.td-grid {
+		grid-area: grid;
+	}
+	.td-car-number {
+		grid-area: number;
+	}
+	.td-constructor {
+		grid-area: constructor;
+	}
+	.td-fastest-lap {
+		grid-area: fastestlap;
+	}
+	.td-laps {
+		grid-area: laps;
+	}
+	.td-time {
+		grid-area: time;
+	}
+	.td-points {
+		grid-area: points;
+		color: var(--gray-mid);
+		font-size: 0.75rem;
+	}
+	
+
+}
+
+
+.grid-change {
+	display: inline-block;
+	font-size: 0.875rem;
+	font-weight: bold;
+	
+	&::before {
+		display: inline-block;
+		font-size: .5rem;
+		width: 1rem;
+	}
+	
+	&.grid-up {
+		color: var(--green);
+		
+		&::before {
+			content: '▲ ';
+		}
+	}
+	
+	&.grid-down {
+		color: var(--red);
+		
+		&::before {
+			content: '▼ ';
+		}
+	}
+}
