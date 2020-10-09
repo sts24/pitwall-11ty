@@ -16,3 +16,18 @@ permalink: /{{ year }}/index.html
 {% endif %}
 {% endfor %}
 </section>
+
+<section class="standings-data content-container">
+{% for item in pitwall.drivers %}
+{% if item.year == year %}
+{% include 'partials/DriversStandings.njk' %}
+{% endif %}
+{% endfor %}
+
+
+{% for item in pitwall.constructors %}
+{% if item.year == year %}
+{% include 'partials/ConstructorsStandings.njk' %}
+{% endif %}
+{% endfor %}
+</section>

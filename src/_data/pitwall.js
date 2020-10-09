@@ -68,9 +68,73 @@ module.exports = async function(){
 	}
 
 
+
+	// drivers standings
+	async function driversStandings(){
+		let allDriversArray = []
+
+		await Promise.all(allYears.map(async (year) => {
+			let driversUrl = 'https://ergast.com/api/f1/' + year + '/driverStandings.json?limit=1000'
+			let driversData = await CacheAsset(driversUrl, {
+				duration: "5d",
+				type: "json"
+			}).then(function(data){
+				let returnData = {};
+
+				let year = data.MRData.StandingsTable.season;
+				let standings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+
+				returnData['year'] = year;
+				returnData['standings'] = standings;
+
+				allDriversArray.push(returnData);
+
+				return true;
+			});
+
+			return driversData
+		}));
+
+		return allDriversArray;
+	}
+
+
+
+	// constrcutors standings
+	async function constructorsStandings(){
+		let allConstructorsArray = []
+
+		await Promise.all(allYears.map(async (year) => {
+			let constructorsUrl = 'https://ergast.com/api/f1/' + year + '/constructorStandings.json?limit=1000'
+			let constructorsData = await CacheAsset(constructorsUrl, {
+				duration: "5d",
+				type: "json"
+			}).then(function(data){
+				let returnData = {};
+
+				let year = data.MRData.StandingsTable.season;
+				let standings = (year >= 1958) ? data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings : [];
+
+				returnData['year'] = year;
+				returnData['standings'] = standings;
+
+				allConstructorsArray.push(returnData);
+
+				return true;
+			});
+
+			return constructorsData
+		}));
+
+		return allConstructorsArray;
+	}
+
+
 	// return to 11ty
 	return {
 		years: allSeasonsData,
-		races: await allRaces()
+		races: await allRaces(),
+		drivers: await driversStandings(),
+		constructors: await constructorsStandings()
 	};
 }
