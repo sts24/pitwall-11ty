@@ -11,13 +11,12 @@
 
 </head>
 <body>
+	
+	<h1>Pitwall</h1>
 
-
-	<ul>
-		{% for season in pitwall.data %}
-			<li>{{ season.season }}</li>
-		{% endfor %}
-	</ul>
+{% block content %}
+{{ content | safe }}
+{% endblock content %}
 
 
 </body>
