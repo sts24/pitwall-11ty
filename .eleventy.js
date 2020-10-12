@@ -1,6 +1,10 @@
 const pluginSass = require("eleventy-plugin-sass");
 
 module.exports = function(config){
+
+	config.addShortcode("log", function (data) {
+		console.log(data);
+	});
 	
 	config.addPlugin(pluginSass, {
 		outputDir: ''
