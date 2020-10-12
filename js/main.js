@@ -7,10 +7,17 @@ document.querySelector('#season-select').addEventListener('change',function(e){
 document.querySelectorAll('.site-nav-button').forEach(function(tabBtn){
 
 	tabBtn.addEventListener('click', function(btn){
-		var btnID = btn.target.id;
-		document.querySelector('.content-tab[aria-hidden="false"]').setAttribute('aria-hidden', true);
+		var thisBtn = btn.target;
 
-		document.querySelector('.content-tab[aria-labelledby="'+ btnID +'"]').setAttribute('aria-hidden', false);
+		// deselect all
+		document.querySelector('.content-tab[aria-hidden="false"]').setAttribute('aria-hidden', true);
+		document.querySelectorAll('.site-nav-button').forEach(function(otherBtn){
+			otherBtn.classList.remove('selected');
+		});
+
+		// select tab from ID
+		document.querySelector('.content-tab[aria-labelledby="'+ thisBtn.id +'"]').setAttribute('aria-hidden', false);
+		thisBtn.classList.add('selected');
 	});
 
 });
