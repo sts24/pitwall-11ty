@@ -30,7 +30,7 @@
             </td>
             <td class="td-driver">
               <a href="{{ car.Driver.url }}" target="_blank">{{ car.Driver.givenName }} {{ car.Driver.familyName }}</a>
-             
+              <img src="/images/nation-flags/{{ car.Driver.nationality }}.svg" alt="{{ car.Driver.nationality }}" class="nation-flag">
             </td>
             <td class="td-grid">
               <span class="mobile-only">Started: </span> {{ car.grid }}
@@ -40,6 +40,7 @@
             </td>
             <td class="td-constructor">
               <a href="{{ car.Constructor.url }}" target="_blank">{{ car.Constructor.name }}</a>
+              <img src="/images/nation-flags/{{ car.Constructor.nationality }}.svg" alt="{{ car.Constructor.nationality }}" class="nation-flag">
             </td>
             <td class="td-fastest-lap">
               <span class="mobile-only">Fastest Lap:</span> {{ car.FastestLap.time }}
