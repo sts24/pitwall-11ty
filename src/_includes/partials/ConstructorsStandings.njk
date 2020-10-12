@@ -14,7 +14,8 @@
           </tr>
         </thead>
         <tbody>
-        {% for i in item.standings %}
+        
+        {% for i in pitwall.constructors[year] %}
           <tr>
             <td>{{ i.positionText }}</td>
             <td>

@@ -1,12 +1,12 @@
 <nav class="type-select">
     <ul class="site-nav content-container">
       <li>
-        <button :class="{'selected': viewOptions.selectedTab === 'races'}" v-on:click="setTab('races')" class="site-nav-button">
+        <button id="race-results-button" class="site-nav-button">
           Race Results
         </button>
       </li>
       <li>
-        <button :class="{'selected': viewOptions.selectedTab === 'standings'}" v-on:click="setTab('standings')" class="site-nav-button">
+        <button id="standings-button" class="site-nav-button">
           Standings
         </button>
       </li>

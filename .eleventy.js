@@ -7,6 +7,8 @@ module.exports = function(config){
 	});
 
 	config.addPassthroughCopy("images");
+	config.addPassthroughCopy("js");
+
 	
 	return {
 		dir: {

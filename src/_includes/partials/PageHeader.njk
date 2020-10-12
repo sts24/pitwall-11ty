@@ -7,9 +7,9 @@
 		<label for="season-select">Select a Season</label>
 		<div class="season-select-wrapper">
 			<select id="season-select" v-model="selectSeason" class="season-select">
-				{% for year in pitwall.years %}
-				<option value="year">
-					{{ year }}
+				{% for yearValue in pitwall.years %}
+				<option value="{{ yearValue }}" {% if year == yearValue %}selected{% endif %}>
+					{{ yearValue }}
 				</option>
 				{% endfor %}
 			</select>

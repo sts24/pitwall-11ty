@@ -38,7 +38,7 @@ module.exports = async function(){
 
 	// get list of races from a season
 	async function allRaces(){
-		let allRacesArray = []
+		let allRacesArray = {};
 
 		await Promise.all(allYears.map(async (year) => {
 			let seasonUrl = "https://ergast.com/api/f1/"+ year +"/results.json?limit=1000"
@@ -46,21 +46,18 @@ module.exports = async function(){
 				duration: "5d",
 				type: "json"
 			}).then(function(data){
-				let returnData = {};
 
 				let year = data.MRData.RaceTable.season;
 				let races = data.MRData.RaceTable.Races;
 
-				returnData['year'] = year;
-				returnData['races'] = races;
+				allRacesArray[year] = races;
 
-				allRacesArray.push(returnData);
-
-				return data.MRData.RaceTable.Races;
+				return true;
 			});
 
 			return seasonData
 		}));
+
 
 		return allRacesArray;
 
@@ -71,7 +68,7 @@ module.exports = async function(){
 
 	// drivers standings
 	async function driversStandings(){
-		let allDriversArray = []
+		let allDriversArray = {}
 
 		await Promise.all(allYears.map(async (year) => {
 			let driversUrl = 'https://ergast.com/api/f1/' + year + '/driverStandings.json?limit=1000'
@@ -79,15 +76,11 @@ module.exports = async function(){
 				duration: "5d",
 				type: "json"
 			}).then(function(data){
-				let returnData = {};
 
 				let year = data.MRData.StandingsTable.season;
 				let standings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
 
-				returnData['year'] = year;
-				returnData['standings'] = standings;
-
-				allDriversArray.push(returnData);
+				allDriversArray[year] = standings;
 
 				return true;
 			});
@@ -102,7 +95,7 @@ module.exports = async function(){
 
 	// constrcutors standings
 	async function constructorsStandings(){
-		let allConstructorsArray = []
+		let allConstructorsArray = {}
 
 		await Promise.all(allYears.map(async (year) => {
 			let constructorsUrl = 'https://ergast.com/api/f1/' + year + '/constructorStandings.json?limit=1000'
@@ -110,15 +103,11 @@ module.exports = async function(){
 				duration: "5d",
 				type: "json"
 			}).then(function(data){
-				let returnData = {};
 
 				let year = data.MRData.StandingsTable.season;
-				let standings = (year >= 1958) ? data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings : [];
+				let standings = (year >= 1958) ? data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings : {};
 
-				returnData['year'] = year;
-				returnData['standings'] = standings;
-
-				allConstructorsArray.push(returnData);
+				allConstructorsArray[year] = standings;
 
 				return true;
 			});

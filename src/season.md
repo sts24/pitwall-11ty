@@ -7,27 +7,18 @@ pagination:
   alias: year
 permalink: /{{ year }}/index.html
 ---
-<section class="race-grid content-container">
-{% for item in pitwall.races %}
-{% if item.year == year %}
-{% for race in item.races %}
-{% include 'partials/RaceTable.njk' %}
-{% endfor %}
-{% endif %}
-{% endfor %}
+<section class="race-grid content-container content-tab" aria-hidden="false" role="tabpanel" aria-labelledby="race-results-button">
+  {% for race in pitwall.races[year] %}
+
+    {% include 'partials/RaceTable.njk' %}
+  
+  {% endfor %}
 </section>
 
-<section class="standings-data content-container">
-{% for item in pitwall.drivers %}
-{% if item.year == year %}
-{% include 'partials/DriversStandings.njk' %}
-{% endif %}
-{% endfor %}
+<section class="standings-data content-container content-tab" aria-hidden="true" role="tabpanel" aria-labelledby="standings-button">
 
+  {% include 'partials/DriversStandings.njk' %}
 
-{% for item in pitwall.constructors %}
-{% if item.year == year %}
-{% include 'partials/ConstructorsStandings.njk' %}
-{% endif %}
-{% endfor %}
+  {% include 'partials/ConstructorsStandings.njk' %}
+
 </section>
