@@ -19,10 +19,10 @@
     <tr>
       <td>{{ i.positionText }}</td>
       <td>
-      <a href="{{ i.Driver.url }}" target="_blank">{{ i.Driver.givenName }} {{ i.Driver.familyName }}</a>
-      <img src="/images/nation-flags/{{ i.Driver.nationality }}.svg" alt="{{ i.Driver.nationality }}" class="nation-flag">
+        <a href="{{ i.Driver.url }}" target="_blank">{{ i.Driver.givenName }} {{ i.Driver.familyName }}</a>
+        <img src="/images/nation-flags/{{ i.Driver.nationality }}.svg" alt="{{ i.Driver.nationality }}" class="nation-flag">
       </td>
-      <td></td>
+      <td>{% constructorsList i.Constructors %}</td>
       <td>{{ i.points }}</td>
       <td>{{ i.wins }}</td>
     </tr>

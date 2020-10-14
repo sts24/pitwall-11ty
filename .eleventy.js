@@ -5,6 +5,32 @@ module.exports = function(config){
 	config.addShortcode("log", function (data) {
 		console.log(data);
 	});
+
+	config.addShortcode("formatDate", function(raceDate) {
+		const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+		const raceUTC = new Date(raceDate)
+  
+		return months[raceUTC.getMonth()] + ' ' + raceUTC.getDate() + ', ' + raceUTC.getFullYear()
+	});
+
+	config.addShortcode("constructorsList", function(c) {
+		let cList = [];
+
+		c.forEach(function(c){
+			cList.push('<a href="'+ c.url +'">'+ c.name +'</a>');
+		});
+
+
+
+		return cList.join(', ');
+	});
+
+
+
+
+
+
+
 	
 	config.addPlugin(pluginSass, {
 		outputDir: ''

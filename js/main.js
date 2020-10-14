@@ -21,3 +21,15 @@ document.querySelectorAll('.site-nav-button').forEach(function(tabBtn){
 	});
 
 });
+
+
+document.querySelectorAll('.reveal-btn').forEach(function(btn){
+
+	btn.addEventListener('click', function(btn){
+		var tableID = '#'+ btn.target.id.replace('-button', '');
+
+		document.querySelector(tableID).classList.add('show-all');
+		document.querySelector(tableID +' tfoot').classList.add('hide');
+	});
+
+});

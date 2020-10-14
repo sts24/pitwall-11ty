@@ -2,11 +2,11 @@
     <header>
       <h2>{{ race.raceName }}</h2>
       <h3><a href="{{ race.Circuit.url }}" target="_blank">{{ race.Circuit.circuitName }}</a></h3>
-      <small>Round {{ race.round }} • {{ race.Circuit.Location.locality }}, {{ race.Circuit.Location.country }} • <formatDate :date="race.date" /> • <a href="{{ race.url }}" target="_blank">Read on Wikipedia</a></small>
+      <small>Round {{ race.round }} • {{ race.Circuit.Location.locality }}, {{ race.Circuit.Location.country }} • {% formatDate race.date %} • <a href="{{ race.url }}" target="_blank">Read on Wikipedia</a></small>
     </header>
 
     <div class="chart-wrap">
-      <table v-bind:class="{ 'show-all': showAllResults }" class="chart">
+      <table id="race-{{ race.season }}-{{ race.round }}" class="chart">
         <thead>
           <tr>
             <th class="th-pos">
@@ -43,7 +43,7 @@
               <img src="/images/nation-flags/{{ car.Constructor.nationality }}.svg" alt="{{ car.Constructor.nationality }}" class="nation-flag">
             </td>
             <td class="td-fastest-lap">
-              <span class="mobile-only">Fastest Lap:</span> {{ car.FastestLap.time }}
+              <span class="mobile-only">Fastest Lap:</span> {{ car.FastestLap.Time.time }}
             </td>
             <td class="td-laps">
               <span class="mobile-only">Laps:</span> {{ car.laps }}
@@ -60,7 +60,7 @@
         <tfoot>
           <tr>
             <td colspan="9">
-              <button @click="showAllResults = true" class="reveal-btn">
+              <button class="reveal-btn" id="race-{{ race.season }}-{{ race.round }}-button">
                 Show Entire Results
               </button>
             </td>
