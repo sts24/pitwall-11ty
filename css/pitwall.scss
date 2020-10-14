@@ -105,6 +105,20 @@ a {
 }
 
 
+
+.site-footer {
+	color: white;
+	background-color: var(--slate);
+	padding: 3rem 0;
+
+	@media (min-width: 768px){
+		text-align: center;
+	}
+
+	--link-color: red;
+}
+
+
 .mobile-only {
 	@media (min-width: 768px){
 		display: none;

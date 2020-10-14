@@ -20,8 +20,6 @@ module.exports = function(config){
 			cList.push('<a href="'+ c.url +'">'+ c.name +'</a>');
 		});
 
-
-
 		return cList.join(', ');
 	});
 
