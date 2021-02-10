@@ -1,4 +1,5 @@
 const CacheAsset = require("@11ty/eleventy-cache-assets");
+const currentYear = require('./currentDate.js');
 
 module.exports = async function(){
 
@@ -119,11 +120,32 @@ module.exports = async function(){
 	}
 
 
+
+
+	// get schedule of current season
+	async function currentSchedule(){
+
+		let scheduleUrl = 'https://ergast.com/api/f1/' + currentYear() + '.json?limit=1000';
+
+		let scheduleData = await CacheAsset(scheduleUrl, {
+			duration: "5d",
+			type: "json"
+		}).then(function(data){
+			return data.MRData.RaceTable;
+		});
+
+		return scheduleData;
+
+	}
+
+
+
 	// return to 11ty
 	return {
 		years: allSeasonsData,
 		races: await allRaces(),
 		drivers: await driversStandings(),
-		constructors: await constructorsStandings()
+		constructors: await constructorsStandings(),
+		currentSchedule: await currentSchedule()
 	};
 }
