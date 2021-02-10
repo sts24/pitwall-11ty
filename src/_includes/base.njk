@@ -27,21 +27,36 @@
   <main class="data-area">
     {% include 'partials/Nav.njk' %}
 
-    <section class="race-grid content-container content-tab" aria-hidden="false" role="tabpanel" aria-labelledby="race-results-button">
-      {% for race in pitwall.races[year] %}
 
-        {% include 'partials/RaceTable.njk' %}
-      
-      {% endfor %}
-    </section>
 
-    <section class="standings-data content-container content-tab" aria-hidden="true" role="tabpanel" aria-labelledby="standings-button">
 
-      {% include 'partials/DriversStandings.njk' %}
+    {% if pitwall.races[year] | length > 0 %}
 
-      {% include 'partials/ConstructorsStandings.njk' %}
+      <section class="race-grid content-container content-tab" aria-hidden="false" role="tabpanel" aria-labelledby="race-results-button">
+        {% for race in pitwall.races[year] %}
 
-    </section>
+          {% include 'partials/RaceTable.njk' %}
+        
+        {% endfor %}
+      </section>
+
+      <section class="standings-data content-container content-tab" aria-hidden="true" role="tabpanel" aria-labelledby="standings-button">
+
+        {% include 'partials/DriversStandings.njk' %}
+
+        {% include 'partials/ConstructorsStandings.njk' %}
+
+      </section>
+
+    {% elif year == currentDate %}
+
+      <section class="content-container message-content">
+
+        <h2>The {{ year }} season has not started yet. Come back after the first race.</h2>
+
+      </section>
+
+    {% endif %}
   </main>
 
   <footer class="site-footer">
