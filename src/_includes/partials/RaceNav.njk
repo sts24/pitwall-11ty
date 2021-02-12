@@ -1,0 +1,15 @@
+<ul class="schedule-list race-nav-list">
+
+	{% for race in pitwall.races[year] %}
+
+		<li>
+			<a href="#round-{{ race.round }}" class="race-nav-item">
+				<div class="schedule-round"><span>Round</span>{{ race.round }}</div>
+				<div class="schedule-race">{{ race.raceName }}</div>
+            	<time class="schedule-date">{% formatDate race.date %}</time>
+			</a>
+        </li>
+
+	{% endfor %}
+
+</li>

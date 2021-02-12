@@ -15,3 +15,16 @@
 		max-width: 1400px;
 	}
 }
+
+
+.season-title {
+	font-size: 2.5rem;
+	font-weight: normal;
+	font-family: Monoton, Helvetica, Arial, sans-serif;
+	color: var(--red);
+	letter-spacing: 3px;
+
+	@media (min-width: 768px){
+		text-align: center;
+	}
+}

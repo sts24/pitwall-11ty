@@ -13,7 +13,6 @@ module.exports = async function(){
 			duration: "5d",
 			type: "json"
 		}).then(function(data){
-			//console.log(data.MRData.RaceTable);
 			return data.MRData.RaceTable.Races;
 		});
 				

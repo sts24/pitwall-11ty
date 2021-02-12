@@ -30,12 +30,26 @@
 
       {% include 'partials/Nav.njk' %}
 
-      <section class="race-grid content-container content-tab" aria-hidden="false" role="tabpanel" aria-labelledby="race-results-button">
-        {% for race in pitwall.races[year] %}
+      <h1 class="season-title">{{ year }} Formula 1 World Championship</h1>
 
-          {% include 'partials/RaceTable.njk' %}
+      <section class="race-grid content-container content-tab" aria-hidden="false" role="tabpanel" aria-labelledby="race-results-button">
         
-        {% endfor %}
+        <div class="race-nav">
+          
+
+          {% include 'partials/RaceNav.njk' %}
+        </div>
+
+        <div class="race-data">
+
+          {% for race in pitwall.races[year] %}
+
+            {% include 'partials/RaceTable.njk' %}
+          
+          {% endfor %}
+
+        </div>
+
       </section>
 
       <section class="standings-data content-container content-tab" aria-hidden="true" role="tabpanel" aria-labelledby="standings-button">
@@ -50,11 +64,11 @@
 
       <section class="content-container message-content">
 
+        <h1 class="season-title">{{ year }} Formula 1 World Championship</h1>
+
         <h2>The {{ year }} season has not started yet. Come back after the first race.</h2>
 
         <p>In the meantime, here is the schedule of races for {{ year }}</p>
-
-        {{ pitwall.currentSchedule | log }}
 
         <ul class="schedule-list">
 

@@ -36,6 +36,7 @@ module.exports = function(config){
 
 	config.addPassthroughCopy("images");
 	config.addPassthroughCopy("js");
+	config.addPassthroughCopy("fonts");
 
 	
 	return {

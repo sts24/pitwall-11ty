@@ -14,6 +14,15 @@
 	}
 }
 
+	.race-nav-list {
+		margin: 2rem 0 0 0;
+
+		> li {
+			padding: 0;
+			margin: 0;
+		}
+	}
+
 .schedule-item {
 	padding: 1em;
 	margin: 0;
@@ -27,6 +36,24 @@
 
 	border: 1px solid var(--gray-light);
 }
+
+
+	.race-nav-item {
+		display: grid;
+		align-items: start;
+		grid-template-columns: 20% auto;
+		grid-template-areas: 
+			"round race"
+			"round date";
+
+		border: 1px solid var(--gray-light);
+		padding: 0.5rem;
+		text-decoration: none;
+		
+		&:hover, &:focus {
+			background: var(--gray-light);
+		}
+	}
 
 .schedule-round {
 	grid-area: round;
