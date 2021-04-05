@@ -2,7 +2,7 @@
 layout: base.njk
 templateEngineOverride: njk
 pagination:
-  data: currentDate
+  data: currentDate.year
   size: 1
   alias: year
 title: The Pitwall

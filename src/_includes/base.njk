@@ -46,6 +46,19 @@
           
           {% endfor %}
 
+
+          {% if year == currentDate.year[0] %}
+            {% for race in pitwall.currentSchedule.Races %}
+
+              {% if race.date | convertTimestamp > currentDate.timestamp %}
+
+                  {% include 'partials/RaceTable.njk' %}
+
+              {% endif %}
+
+            {% endfor %}
+          {% endif %}
+
         </div>
 
       </section>
@@ -58,7 +71,7 @@
 
       </section>
 
-    {% elif year == currentDate %}
+    {% elif year == currentDate.year %}
 
       <section class="content-container message-content">
 

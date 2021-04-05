@@ -6,6 +6,10 @@ module.exports = function(config){
 		console.log(data);
 	});
 
+	config.addFilter("convertTimestamp", function(raceDate){
+		return Date.parse(raceDate);
+	});
+
 	config.addShortcode("formatDate", function(raceDate) {
 		const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 		const raceUTC = new Date(raceDate)

@@ -3,10 +3,10 @@
 	{% for race in pitwall.currentSchedule.Races %}
 
 		<li class="schedule-item">
-		<div class="schedule-round"><span>Round</span>{{ race.round }}</div>
-		<div class="schedule-race">{{ race.raceName }}</div>
-		<div class="schedule-location">{{ race.Circuit.circuitName }} • {{ race.Circuit.Location.locality }}, {{ race.Circuit.Location.country }}</div>
-		<time class="schedule-date">{% formatDate race.date %}</time>
+			<div class="schedule-round"><span>Round</span>{{ race.round }}</div>
+			<div class="schedule-race">{{ race.raceName }}</div>
+			<div class="schedule-location">{{ race.Circuit.circuitName }} • {{ race.Circuit.Location.locality }}, {{ race.Circuit.Location.country }}</div>
+			<time class="schedule-date">{% formatDate race.date %}</time>
 		</li>
 
 	{% endfor %}

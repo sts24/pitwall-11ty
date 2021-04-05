@@ -1,5 +1,5 @@
 const CacheAsset = require("@11ty/eleventy-cache-assets");
-const currentYear = require('./currentDate.js');
+const currentDate = require('./currentDate.js');
 
 module.exports = async function(){
 
@@ -124,7 +124,7 @@ module.exports = async function(){
 	// get schedule of current season
 	async function currentSchedule(){
 
-		let scheduleUrl = 'https://ergast.com/api/f1/' + currentYear() + '.json?limit=1000';
+		let scheduleUrl = 'https://ergast.com/api/f1/' + currentDate().year + '.json?limit=1000';
 
 		let scheduleData = await CacheAsset(scheduleUrl, {
 			duration: "5d",

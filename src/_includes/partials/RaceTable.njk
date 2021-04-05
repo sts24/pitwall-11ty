@@ -5,6 +5,8 @@
       <small>Round {{ race.round }} • {{ race.Circuit.Location.locality }}, {{ race.Circuit.Location.country }} • {% formatDate race.date %} • <a href="{{ race.url }}" target="_blank">Read on Wikipedia</a></small>
     </header>
 
+    {% if race.Results %}
+
     <div class="chart-wrap">
       <table id="race-{{ race.season }}-{{ race.round }}" class="chart">
         <thead>
@@ -23,39 +25,39 @@
           </tr>
         </thead>
         <tbody>
-		{% for car in race.Results %}
-          <tr class="row-position">
-            <td class="td-position">
-              {{ car.positionText }}
-            </td>
-            <td class="td-driver">
-              <a href="{{ car.Driver.url }}" target="_blank">{{ car.Driver.givenName }} {{ car.Driver.familyName }}</a>
-              <img src="/images/nation-flags/{{ car.Driver.nationality }}.svg" alt="{{ car.Driver.nationality }}" class="nation-flag">
-            </td>
-            <td class="td-grid">
-              <span class="mobile-only">Started: </span> {{ car.grid }}
-            </td>
-            <td class="td-car-number">
-              {{ car.number }}
-            </td>
-            <td class="td-constructor">
-              <a href="{{ car.Constructor.url }}" target="_blank">{{ car.Constructor.name }}</a>
-              <img src="/images/nation-flags/{{ car.Constructor.nationality }}.svg" alt="{{ car.Constructor.nationality }}" class="nation-flag">
-            </td>
-            <td class="td-fastest-lap">
-              <span class="mobile-only">Fastest Lap:</span> {{ car.FastestLap.Time.time }}
-            </td>
-            <td class="td-laps">
-              <span class="mobile-only">Laps:</span> {{ car.laps }}
-            </td>
-            <td class="td-time">
-              <span class="mobile-only">Time:</span> {{ car.Time.time }}
-            </td>
-            <td class="td-points">
-              {{ car.points }} <span class="mobile-only">Pts</span>
-            </td>
-          </tr>
-		{% endfor %}
+          {% for car in race.Results %}
+                <tr class="row-position">
+                  <td class="td-position">
+                    {{ car.positionText }}
+                  </td>
+                  <td class="td-driver">
+                    <a href="{{ car.Driver.url }}" target="_blank">{{ car.Driver.givenName }} {{ car.Driver.familyName }}</a>
+                    <img src="/images/nation-flags/{{ car.Driver.nationality }}.svg" alt="{{ car.Driver.nationality }}" class="nation-flag">
+                  </td>
+                  <td class="td-grid">
+                    <span class="mobile-only">Started: </span> {{ car.grid }}
+                  </td>
+                  <td class="td-car-number">
+                    {{ car.number }}
+                  </td>
+                  <td class="td-constructor">
+                    <a href="{{ car.Constructor.url }}" target="_blank">{{ car.Constructor.name }}</a>
+                    <img src="/images/nation-flags/{{ car.Constructor.nationality }}.svg" alt="{{ car.Constructor.nationality }}" class="nation-flag">
+                  </td>
+                  <td class="td-fastest-lap">
+                    <span class="mobile-only">Fastest Lap:</span> {{ car.FastestLap.Time.time }}
+                  </td>
+                  <td class="td-laps">
+                    <span class="mobile-only">Laps:</span> {{ car.laps }}
+                  </td>
+                  <td class="td-time">
+                    <span class="mobile-only">Time:</span> {{ car.Time.time }}
+                  </td>
+                  <td class="td-points">
+                    {{ car.points }} <span class="mobile-only">Pts</span>
+                  </td>
+                </tr>
+          {% endfor %}
         </tbody>
         <tfoot>
           <tr>
@@ -67,5 +69,9 @@
           </tr>
         </tfoot>
       </table>
+
+      
     </div>
+    
+    {% endif %}
   </section>
