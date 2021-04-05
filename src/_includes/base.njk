@@ -35,8 +35,6 @@
       <section class="race-grid content-container content-tab" aria-hidden="false" role="tabpanel" aria-labelledby="race-results-button">
         
         <div class="race-nav">
-          
-
           {% include 'partials/RaceNav.njk' %}
         </div>
 
@@ -70,20 +68,7 @@
 
         <p>In the meantime, here is the schedule of races for {{ year }}</p>
 
-        <ul class="schedule-list">
-
-        {% for race in pitwall.currentSchedule.Races %}
-
-          <li class="schedule-item">
-            <div class="schedule-round"><span>Round</span>{{ race.round }}</div>
-            <div class="schedule-race">{{ race.raceName }}</div>
-            <div class="schedule-location">{{ race.Circuit.circuitName }} • {{ race.Circuit.Location.locality }}, {{ race.Circuit.Location.country }}</div>
-            <time class="schedule-date">{% formatDate race.date %}</time>
-          </li>
-
-        {% endfor %}
-
-        </ul>
+        {% include "partials/ScheduleList.njk" %}
 
 
       </section>
