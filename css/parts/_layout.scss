@@ -21,14 +21,15 @@
 	font-size: 1.5rem;
 	font-weight: normal;
 	font-family: Monoton, Helvetica, Arial, sans-serif;
-	color: var(--red);
+	color: white;
+	background: var(--red);
 	letter-spacing: 3px;
-
-	padding: 0 1rem;
+	margin: 0;
+	padding: 1rem;
 
 	@media (min-width: 768px){
 		text-align: center;
 		font-size: 2.5rem;
-		padding: 0;
+		padding: 2rem;
 	}
 }

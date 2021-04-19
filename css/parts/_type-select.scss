@@ -1,10 +1,9 @@
 .type-select {
-	border-bottom: 2px solid lightgray;
-
+	background: var(--slate);
+	
 	@media (max-width: 768px){
 		position: sticky;
 		width: 100%;
-		background: white;
 	}
 }
 
@@ -42,6 +41,10 @@
 		width: 100%;
 		color: white;
 		cursor: pointer;
+
+		option {
+			color: var(--slate);
+		}
 		
 		&:focus {
 			outline: 0;
@@ -81,17 +84,20 @@
     border: 0;
     padding: 0.5rem 1rem;
     margin: 0;
-    background: rgba(white,0.1);
-    color: var(--gray-dark);
-    text-align: left;
+    background: transparent;
+    color: white;
+    text-align: center;
+	border-radius: 0;
+
 
     &:hover {
         background: var(--gray-light);
+		color: var(--slate);
 	}
 	
 	&:focus {
 		outline: 0;
-		box-shadow: inset 0 0 0 2px var(--slate);
+		box-shadow: inset 0 0 0 2px var(--link-color);
 	}
 
     &.selected {
