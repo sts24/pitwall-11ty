@@ -6,5 +6,11 @@
     <li>
       <button id="standings-button" class="site-nav-button">Standings</button>
     </li>
+
+    {% if year == currentDate.year[0] %}
+    <li>
+      <button id="schedule-button" class="site-nav-button">Schedule</button>
+    </li>
+    {% endif %}
   </ul>
 </nav>

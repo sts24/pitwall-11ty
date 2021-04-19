@@ -46,19 +46,6 @@
           
           {% endfor %}
 
-
-          {% if year == currentDate.year[0] %}
-            {% for race in pitwall.currentSchedule.Races %}
-
-              {% if race.date | convertTimestamp > currentDate.timestamp %}
-
-                  {% include 'partials/RaceTable.njk' %}
-
-              {% endif %}
-
-            {% endfor %}
-          {% endif %}
-
         </div>
 
       </section>
@@ -70,6 +57,17 @@
         {% include 'partials/ConstructorsStandings.njk' %}
 
       </section>
+
+      {% if year == currentDate.year[0] %}
+        <section class="schedule-data content-container content-tab" aria-hidden="true" role="tabpanel" aria-labelledby="schedule-button">
+
+          {% for race in pitwall.currentSchedule.Races %}
+            {% include 'partials/RaceTable.njk' %}
+          {% endfor %}
+
+        </section>
+      {% endif %}
+
 
     {% elif year == currentDate.year %}
 
