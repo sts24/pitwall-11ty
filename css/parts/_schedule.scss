@@ -88,3 +88,67 @@
 	grid-area: date;
 	font-size: 0.875em;
 }
+
+
+
+
+/// for schedule tab
+
+.schedule-table {
+	margin: 1rem 0;
+	padding: 1rem;
+
+	
+
+	&:nth-child(even){
+		background: var(--gray-light);
+	}
+
+	@media (min-width: 768px){
+		display: grid;
+		grid-template-areas: 
+			"num name"
+			"date circuit";
+
+		grid-template-columns: 30% 1fr;
+	}
+}
+
+.round-number {
+	grid-area: num;
+
+	font-family: var(--special-font);
+	color: var(--red);
+	font-size: 1rem;
+
+	@media (min-width: 768px){
+		font-size: 1.5rem;
+	}
+}
+
+.round-date {
+	grid-area: date;
+
+	font-size: 1rem;
+	font-weight: bold;
+
+	@media (min-width: 768px){
+		font-size: 1.25rem;
+	}
+}
+
+.round-name {
+	grid-area: name;
+
+	font-family: var(--special-font);
+	color: var(--slate);
+	font-size: 1.25rem;
+
+	@media (min-width: 768px){
+		font-size: 1.75rem;
+	}
+}
+
+.round-circuit {
+	grid-area: circuit;
+}

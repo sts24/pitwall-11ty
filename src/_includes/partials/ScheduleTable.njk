@@ -1,0 +1,12 @@
+<section class="schedule-table" id="round-{{ race.round }}">
+    
+    <div class="round-number">Round {{ race.round }}</div>
+    <div class="round-date">{% formatDate race.date %}</div>
+
+    <div class="round-name">{{ race.raceName }}</div>
+    <div class="round-circuit">
+        <a href="{{ race.Circuit.url }}" target="_blank">{{ race.Circuit.circuitName }}</a> • 
+        {{ race.Circuit.Location.locality }}, {{ race.Circuit.Location.country }}
+    </div>
+
+</section>
